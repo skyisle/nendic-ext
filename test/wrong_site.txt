@@ -1,0 +1,10 @@
+# 정상적으로 표시되지 않는 사이트
+
+http://macchiato.com/unicode/chart/
+	DOM은 추가되나 사전이 표시되지 않음.
+
+http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml
+	xml 형태라 그런가 전혀 표시되지 않음.
+
+http://addyosmani.com/scalablejs/
+	슬라이드를 넘겨 슬라이드 안에서 테스트 필요.

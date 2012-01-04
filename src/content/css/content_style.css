@@ -1,0 +1,61 @@
+/**
+ * Naver English Dictonary Chrome Extension
+ * Content Style
+ *
+ * @author ohgyun@gmail.com
+ */
+@charset "utf-8";
+#endic_ext_wrapper {display:block; position:fixed; top:2px; right:2px; width:302px; z-index:999999999999}
+
+/* reset */
+#endic_ext_wrapper div,
+#endic_ext_wrapper h3,
+#endic_ext_wrapper h4,
+#endic_ext_wrapper span,
+#endic_ext_wrapper a,
+#endic_ext_wrapper ul,
+#endic_ext_wrapper li,
+#endic_ext_wrapper button {margin:0; padding:0; border:0; color:#333; font-size:11px; font-family:"나눔고딕","돋움",Dotum,Arial; text-align:left; line-height:130%; overflow:default}
+#endic_ext_wrapper button {border:0; background:none; text-decoration:underline; cursor:pointer}
+
+/* header */
+div#endic_ext_header {width:300px; border-width:1px 1px 0 1px; border-color:#1e6d04; border-style:solid; background:-webkit-gradient(linear,left top,left bottom,from(#58be2c),to(#43b215)); -webkit-border-top-left-radius:2px; -webkit-border-top-right-radius:2px}
+#endic_ext_header .endic_ext_endic {width:298px; height:19px; border-width:1px 0 1px 1px; border-style:solid; border-color:#64c639; text-align:right}
+#endic_ext_header a.endic_ext_endic_main {display:inline-block; margin:3px 8px 0 0; color:#fff; text-decoration:none}
+#endic_ext_header a.endic_ext_endic_main:hover {text-decoration:underline}
+
+#endic_ext_header div.endic_ext_toggle_dic_type {position:absolute; top:28px; right:8px; text-align:right}
+
+/* body */
+div#endic_ext_body {width:300px; border-width:1px 1px 0 1px; border-style:solid; border-color:#1e6d04; background:#fafafa}
+#endic_ext_body .endic_ext_body_wrapper {width:288px; padding:5px; border-width:1px 0 1px 1px; border-style:solid; border-color:#fdfdfd}
+
+
+#endic_ext_body h3 {width:278px; background:none}
+#endic_ext_body a {text-decoration:none}
+#endic_ext_body a:hover {text-decoration:underline}
+#endic_ext_body .endic_ext_title {font-size:12px; font-weight:bold; color:#0034ac}
+#endic_ext_body .endic_ext_number {margin:0;color:#0034ac; font-weight:normal}
+#endic_ext_body .endic_ext_phonetic_symbol {padding-left:2px; color:#666; font-weight:normal; font-size:11px}
+#endic_ext_body .endic_ext_play_audio_btn {width:11px; height:11px; margin-left:4px; text-indent:-1000px; background:url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAYklEQVR42mNgIBdozb/zn7Ciebf/8/ZfRlE4/cKT/3BJGJZZ8gqusOvQtf8oCkESMotfwjFuhX2X/ksvfgHHID5Whay1u//DsPSi50CFF7ErRAasNbv/8/ZewO4ZbIoZKAEAIMphKxQdtUAAAAAASUVORK5CYII=) no-repeat center center}
+#endic_ext_body .endic_ext_play_audio_btn.on {background-image:url(data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAYElEQVR42mNgIBdozb/zn7Ciebf/8/ZfRlH4v5jhP1wShmWWvIIrhCmAKwRJyCx+Cce4FfZd+i+9+AUcg/hYFbLW7v4Pw9KLngMVXsSuEBmw1uz+z9t7AbtnsClmoAQAADrPWVUqd2dyAAAAAElFTkSuQmCC)}
+#endic_ext_body audio {display:none}
+
+#endic_ext_body .endic_ext_meaning {width:275px; margin:3px 0 0 3px}
+#endic_ext_body .endic_ext_meaning .endic_ext_type {width:275px; font-weight:bold; font-size:1em}
+#endic_ext_body .endic_ext_meaning .endic_ext_defs {width:271px; margin:2px 0 0 4px}
+#endic_ext_body .endic_ext_meaning .endic_ext_defs .endic_ext_ex_en,
+#endic_ext_body .endic_ext_meaning .endic_ext_defs .endic_ext_ex_kr {width:265px; margin:0 0 0 8px; color:#999}
+#endic_ext_body .endic_ext_meaning .endic_ext_moreDefinition {margin:3px 0 5px 3px}
+#endic_ext_body .endic_ext_meaning .endic_ext_moreDefinition a {color:#555; font-size:10px}
+
+#endic_ext_body .endic_ext_keyword {color:#0034ac; font-weight:bold}
+
+/* footer */
+div#endic_ext_footer {width:300px; background:#f0f0f0; border-width:0px 1px 1px 1px; border-color:#1e6d04; border-style:solid; -webkit-border-bottom-left-radius:2px; -webkit-border-bottom-right-radius:2px}
+#endic_ext_footer .endic_ext_guide_group {width:290px; padding:5px; text-align: right}
+#endic_ext_footer .endic_ext_show_shortcut_guide_btn {color:#999; font-size:11px}
+#endic_ext_footer #endic_ext_shortcut_guide {display:none; width:290px; padding:5px; border-top:1px dashed #999}
+#endic_ext_footer #endic_ext_shortcut_guide li {margin:0; padding:0 0 0 3px; list-style:none}
+#endic_ext_footer #endic_ext_shortcut_guide li strong {color:#0034ac; font-weight:bold}
+

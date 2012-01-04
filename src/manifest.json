@@ -1,0 +1,34 @@
+{
+  "name": "네이버 영어사전",
+  "version": "1.5.0",
+  "description": "네이버 영어사전",
+  "icons": {
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content/css/content_style.css"],
+      "js": [
+        "lib/j-framework.js",
+        //"content/build/content_script.js",
+        // dev
+        "content/frame.js",
+        "content/extension.js",
+        "content/markup.js",
+        "content/ui.js",
+        "content/command.js",
+        "content/mouseEvent.js",
+        "content/shortcut.js",
+        "content/audio.js",
+        "content/start.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "background_page": "background/background.html",
+  "permissions": [
+    "<all_urls>", "tabs", "contextMenus", "cookies"
+  ]
+}
