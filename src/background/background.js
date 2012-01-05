@@ -173,12 +173,12 @@ NendicExt.frame = {
     
     this.map[tabId] = frames;
     
-    chrome.tabs.getSelected(null, function (tab) {
-      chrome.tabs.sendRequest(tab.id, {
-        "command": "frameActivated",
-        "data": frames.activated.id
-      });
+    
+    chrome.tabs.sendRequest(tabId, {
+      "command": "frameActivated",
+      "data": frames.activated.id
     });
+    
   },
   
   /**
@@ -217,11 +217,9 @@ NendicExt.frame = {
   resetFrame: function(tabId) {
     delete this.map[tabId];
     
-    chrome.tabs.getSelected(null, function (tab) {
-      chrome.tabs.sendRequest(tab.id, {
-        "command": "needFrameInfo"
-      });
-    });   
+    chrome.tabs.sendRequest(tabId, {
+      "command": "needFrameInfo"
+    }); 
   },
   
 };
@@ -240,8 +238,8 @@ NendicExt.action = {
   
   "close": function (data) {
     chrome.tabs.getSelected(null, function (tab) {
-    chrome.tabs.sendRequest(tab.id, {
-      "command": "close"
+      chrome.tabs.sendRequest(tab.id, {
+        "command": "close"
       });
     });      
   },
@@ -266,22 +264,22 @@ NendicExt.action = {
       if (cookie === null || cookie.value === "N") {
         toggledValue = "Y";
       } else {
-      toggledValue = "N";
+        toggledValue = "N";
       }
       
       // 3. 선택된 쿠키를 삭제한 후, (fix: Mac OS에서 쿠키가 삭제되지 않고 append 되는 문제)
       chrome.cookies.remove({
-      "url": url,
+        "url": url,
         "name": cookieName,
       }, function () {
         // 4. 쿠키를 다시 셋팅하고 검색 요청을 보낸다.
         chrome.cookies.set({
-        "url": url,
-        "name": cookieName,
-        "value": toggledValue
-      }, function (cookie) {
-        NendicExt.searchWordWithRecentQuery();
-      });
+          "url": url,
+          "name": cookieName,
+          "value": toggledValue
+        }, function (cookie) {
+          NendicExt.searchWordWithRecentQuery();
+        });
       });
       
     });

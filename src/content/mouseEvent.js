@@ -19,10 +19,9 @@ J.module('mouseEvent', {
   initClickEventOfWrapper: function (wrapper) {
     var t = this;
     document.documentElement.addEventListener('click', function (evt) {
-      var target = evt.target,
-        wrapper = t.getWrapper();
+      var target = evt.target;
       
-      if (wrapper && wrapper.contains(target)) {
+      if (t.isClickedOnWrapper(target)) {
         t.doAction(target);
         return;
       }
@@ -32,6 +31,21 @@ J.module('mouseEvent', {
       // 따라서, 사전 외부 영역 클릭 시, 페이지를 닫도록 메세지를 보낸다.
       t.$ps.publish('mouseEvent.close');
     }, false);
+  },
+  
+  /**
+   * wrapper 엘리먼트 내에서 클릭된 것인가?
+   * @param {Element} target
+   * @return {boolean}
+   */
+  isClickedOnWrapper: function (target) {
+    var wrapper = this.getWrapper();
+    
+    if (wrapper && wrapper.contains(target)) {
+      return true;  
+    }
+    
+    return false;
   },
   
   getWrapper: function () {
