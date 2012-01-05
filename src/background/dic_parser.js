@@ -66,12 +66,11 @@ var WordParser = (function () {
 
   function parseHtmlToData() {
     var data = {
-      "title": Util.find(_wrapper, ".t1 strong", "text")
-	  		|| Util.find(_wrapper, ".t1 a", "text"),
+      "title": Util.find(_wrapper, ".t1 strong", "text") || Util.find(_wrapper, ".t1 a", "text"),
       "number": Util.find(_wrapper, ".t1 sup", "text"),
       "url": Util.find(_wrapper, ".t1 a", "href"),
       "phonetic_symbol": Util.find(_wrapper, ".t2", "text"),
-	  "pronunciation": Util.find(_wrapper, "#pron_en", "playlist")
+      "pronunciation": Util.find(_wrapper, "#pron_en", "playlist")
     };   
     return data; 
   }
@@ -110,9 +109,9 @@ var MeaningParser = (function () {
   }
 
   function getCurrentDataAndTryNext(datas, current) {
-    if (current.hasClass("box_a")
-        || current.hasClass("box_b")
-        || current.hasClass("box_c")) {
+    if (current.hasClass("box_a") ||
+        current.hasClass("box_b") ||
+        current.hasClass("box_c")) {
       
       datas.push(getData(current));
       getCurrentDataAndTryNext(datas, current.next());
@@ -202,11 +201,11 @@ var Util = {
         href = host + href; 
       }
       return href;
-	   
+     
     } else {
-	  var attr = target.attr(type) || "";
-	  return attr;
-	}
+      var attr = target.attr(type) || "";
+      return attr;
+    }
   }
 };
 

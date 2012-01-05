@@ -68,11 +68,29 @@ J.module('mouseEvent', {
   initDoubleClickEvent: function () {
     var t = this;
     document.documentElement.addEventListener('dblclick', function (evt) {
-      var selectionText = t.getSelectedText();
-      if (selectionText) {
+      var target = evt.target,
+        selectionText = t.getSelectedText();
+        
+      if (t.isValidTarget(target) && selectionText) {
         t.$ps.publish('mouseEvent.search', selectionText);
       }
     });
+  },
+  
+  /**
+   * 유효한 대상인가?
+   * @param {Element} target
+   * @return {boolean}
+   */
+  isValidTarget: function (target) {
+    var reg = /(input|textarea)/i,
+      tagName = target.tagName;
+      
+    if (reg.test(tagName)) {
+      return false; 
+    }
+    
+    return true;
   },
   
   /**
