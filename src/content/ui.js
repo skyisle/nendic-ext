@@ -9,13 +9,10 @@ J.module('ui', {
   
   $markup: null,
   
-  $mouseEvent: null,
-  
   _wrapper: null,
     
   init: function(){
     this.createWrapperElement();
-    this.$mouseEvent.delegate(this._wrapper);
   },
   
   /**

@@ -5,15 +5,24 @@ J.module('mouseEvent', {
   
   $ps: null,
   
+  _wrapper: null,
+  
+  init: function () {
+    this.initClickEventOfWrapper();
+    this.initDoubleClickEvent();
+  },
+  
   /**
    * 최상위 엘리먼트에 click 이벤트를 바인딩한다.
    * @param {Element} wrapper
    */
-  delegate: function (wrapper) {
+  initClickEventOfWrapper: function (wrapper) {
     var t = this;
     document.documentElement.addEventListener('click', function (evt) {
-      var target = evt.target;
-      if (wrapper.contains(target)) {
+      var target = evt.target,
+        wrapper = t.getWrapper();
+      
+      if (wrapper && wrapper.contains(target)) {
         t.doAction(target);
         return;
       }
@@ -23,6 +32,19 @@ J.module('mouseEvent', {
       // 따라서, 사전 외부 영역 클릭 시, 페이지를 닫도록 메세지를 보낸다.
       t.$ps.publish('mouseEvent.close');
     }, false);
+  },
+  
+  getWrapper: function () {
+    if (this._wrapper) {
+      return this._wrapper; 
+    }
+    
+    var wrapper = document.getElementById('endic_ext_wrapper');
+    if (wrapper) {
+      this._wrapper = wrapper; 
+    }
+    
+    return wrapper;
   },
   
   /**
@@ -38,5 +60,26 @@ J.module('mouseEvent', {
     if (command) {
       this.$ps.publish('mouseEvent.' + command, value);
     }
-  }
+  },
+  
+  /**
+   * 더블클릭으로 사전을 열 수 있도록 한다.
+   */
+  initDoubleClickEvent: function () {
+    var t = this;
+    document.documentElement.addEventListener('dblclick', function (evt) {
+      var selectionText = t.getSelectedText();
+      if (selectionText) {
+        t.$ps.publish('mouseEvent.search', selectionText);
+      }
+    });
+  },
+  
+  /**
+   * 현재 선택한 문자열을 가져온다.
+   * @return {string}
+   */
+  getSelectedText: function () {
+    return window.getSelection().toString().trim();
+  }  
 });
