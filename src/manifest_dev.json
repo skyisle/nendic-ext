@@ -11,7 +11,16 @@
       "matches": ["<all_urls>"],
       "css": ["content/css/content_style.css"],
       "js": [
-        "content/build/content_script.js"
+        "lib/j-framework.js",
+        "content/frame.js",
+        "content/extension.js",
+        "content/markup.js",
+        "content/ui.js",
+        "content/command.js",
+        "content/mouseEvent.js",
+        "content/shortcut.js",
+        "content/audio.js",
+        "content/start.js"
       ],
       "all_frames": true
     }
