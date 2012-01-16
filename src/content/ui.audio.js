@@ -1,7 +1,7 @@
 /**
  * 사운드 재생을 위한 모듈
  */
-J.module('audio', {
+J.module('ui.audio', {
   /**
    * 오디오를 재생한다.
    * @param {number} audioIdx 오디오 버튼의 인덱스

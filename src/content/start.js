@@ -1,1 +1,2 @@
 J.init();
+J.startAll();

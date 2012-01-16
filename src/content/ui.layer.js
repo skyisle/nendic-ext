@@ -1,13 +1,13 @@
 /**
  * UI를 구성하는 모듈
  */
-J.module('ui', {
+J.module('ui.layer', {
 
   $ps: null,
 
-  $frame: null,
+  __frame: null,
   
-  $markup: null,
+  __markup: null,
   
   _wrapper: null,
     
@@ -35,10 +35,10 @@ J.module('ui', {
    */
   open: function (data) {
     // 검색 결과는 활성화되어 있는 프레임에서만 보여준다.
-    if ( ! this.$frame.isActivatedFrame()) { return; }
+    if ( ! this.__frame.isActivatedFrame()) { return; }
         
     if (data) {
-      this.$markup.print(this._wrapper, data);
+      this.__markup.print(this._wrapper, data);
     }
     
     this._wrapper.style.display = 'block';

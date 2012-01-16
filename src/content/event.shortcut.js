@@ -1,7 +1,7 @@
 /**
  * 단축키 모듈
  */
-J.module('shortcut', {
+J.module('event.shortcut', {
 
   $ps: null,
     

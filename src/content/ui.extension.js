@@ -1,7 +1,7 @@
 /**
  * 익스텐션과 통신하는 모듈
  */
-J.module('extension', {
+J.module('ui.extension', {
   
   $ps: null,
   

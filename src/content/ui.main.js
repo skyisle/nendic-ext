@@ -1,15 +1,15 @@
 /**
  * 전반적인 액션의 퍼사드 역할을 하는 모듈.
  */
-J.module('command', {
+J.module('ui.main', {
 
   $ps: null,
 
-  $ui: null,
+  __layer: null,
   
-  $audio: null,
+  __audio: null,
   
-  $extension: null,
+  __extension: null,
     
   init: function () {
     this.initSubscriber();
@@ -28,7 +28,7 @@ J.module('command', {
     var t = this;
     this.$ps.subscribe('mouseEvent.*', function (data, topic) {
       var cmd = topic.split('.')[1];
-      t.$extension.request(cmd, data);
+      t.__extension.request(cmd, data);
     });    
   },
   
@@ -46,10 +46,10 @@ J.module('command', {
         when = data.when, // 'all' or 'opened'
         value = data.value;
       
-      if (when === 'opened' && t.$ui.isOpened() === false) {
+      if (when === 'opened' && t.__layer.isOpened() === false) {
         return;
       }
-      t.$extension.request(cmd, value);
+      t.__extension.request(cmd, value);
     });    
   },
   
@@ -72,34 +72,34 @@ J.module('command', {
    * 결과를 보여준다.
    */
   showResult: function (data) {
-    this.$ui.open(data);
+    this.__layer.open(data);
   },
   
   /**
    * 사전을 닫는다.
    */
   close: function () {
-    this.$ui.close();
+    this.__layer.close();
   },
   
   /**
    * 사전 서비스 페이지로 이동한다.
    */
   goToDictionaryPage: function() {
-    this.$ui.goToDictionaryPage();
+    this.__layer.goToDictionaryPage();
   },
   
   /**
    * 단축키 가이드를 보여준다.
    */
   showShortcutGuide: function() {
-    this.$ui.showShortcutGuide();
+    this.__layer.showShortcutGuide();
   },
   
   /**
    * 오디오를 재생한다.
    */
   playAudio: function(audioIdx) {
-    this.$audio.play(audioIdx);
+    this.__audio.play(audioIdx);
   }
 });

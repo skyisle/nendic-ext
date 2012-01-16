@@ -13,20 +13,20 @@
  * - 프레임 테스트 사이트: http://addyosmani.com/scalablejs/
  * - http://goo.gl/rvhDA
  */
-J.module('frame', {
+J.module('ui.frame', {
 
-  $core: null,
-
-  $extension: null,
+  $util: null,
   
   $ps: null,
+
+  __extension: null,
   
   _bActivated: false,
   
   _id: null,
   
   init: function () {
-    this._id = this.$core.guid();
+    this._id = this.$util.guid();
     
     this.initFrameActivateEvent();
   },
@@ -46,7 +46,7 @@ J.module('frame', {
   checkFrameOnMousedown: function () {
     var t = this;
     document.documentElement.addEventListener('mousedown', function (evt) {
-      t.$extension.request('checkFrameExist', t._id);
+      t.__extension.request('checkFrameExist', t._id);
     });  
   },
   
@@ -75,7 +75,7 @@ J.module('frame', {
       if (!document.body) { return; }
 
       // 익스텐션에 모듈이 초기화 됐음을 알린다.
-      t.$extension.request('init', {
+      t.__extension.request('init', {
         id: t._id,
         width: doc.offsetWidth,
         height: doc.offsetHeight 

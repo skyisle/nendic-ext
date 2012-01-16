@@ -1,7 +1,7 @@
 /**
  * 마우스 이벤트 모듈
  */
-J.module('mouseEvent', {
+J.module('event.mouseEvent', {
   
   $ps: null,
   

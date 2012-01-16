@@ -1,4 +1,4 @@
-J.module('markup', {
+J.module('ui.markup', {
 
   /**
    * Simple JavaScript Templating
