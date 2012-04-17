@@ -22,11 +22,9 @@ J.module('event.shortcut', {
     // keydown일 경우, 한글일 때 키코드를 정확하게 찾지 못하는 버그가 있다.
     // keyup 이벤트를 할당한다.
     document.documentElement.addEventListener('keyup', function (evt) {
+      t.process(evt.keyCode);
+      
       switch (evt.keyCode) {
-      case 70: // f
-      case 68: // d
-        t.process(evt.keyCode);
-        break;
                     
       case 67: // c
       case 27: // esc
@@ -51,6 +49,9 @@ J.module('event.shortcut', {
                     
       case 191: // /(slash)
         break;
+
+      default:
+        break;
       }
             
     });
@@ -71,19 +72,18 @@ J.module('event.shortcut', {
         t._doing = false;
         t._timer = null;
       }, this._timeLimit);
-    }
-        
-    if (this._doing === true && keyCode === 68) { // 연속으로 d 키를 누른다.
-      this._doing = false;
-            
-      var selectionText = this.getSelectedText();
-      if (selectionText) {
-        this.$ps.publish('shortcut.search', {
-          when: 'all',
-          value: selectionText
-        });
+    } else if (this._doing === true) {
+      if(keyCode === 68) { // 연속으로 d 키를 누른다. d가 아니면 정리한다.
+        var selectionText = this.getSelectedText();
+        if (selectionText) {
+          this.$ps.publish('shortcut.search', {
+            when: 'all',
+            value: selectionText
+          });
+        }
       }
-            
+      
+      this._doing = false;
       if (this._timer) {
         clearTimeout(this._timer);
         this._timer = null;
