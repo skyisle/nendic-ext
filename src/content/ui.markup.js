@@ -142,7 +142,6 @@ J.module('ui.markup', {
       // shortcut guide
       '<div id="endic_ext_shortcut_guide">',
         '<ul>',
-          '<li>단어 선택 + <strong>fd</strong> : 검색(Find Dictionary)</li>',
           '<li><strong>s</strong> : 한영/영영 전환(Switch dictionary)</li>',
           '<li><strong>a</strong> : 발음듣기(Audio)</li>',
           '<li><strong>g</strong> : 현재 단어의 영어사전 페이지로 이동(Go to)</li>',
